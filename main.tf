@@ -32,6 +32,16 @@ resource "aws_vpc" "vpc-b" {
 
 }
 
+resource "aws_subnet" "subnet-1b" {
+  vpc_id                  = aws_vpc.vpc-b.id
+  cidr_block              = "10.1.1.0/24"
+  availability_zone       = "eu-west-1b"
+  map_public_ip_on_launch = false
+  tags = {
+    Name = "subnet-1b"
+  }
+}
+
 resource "aws_vpc" "vpc-c" {
   cidr_block = "10.2.0.0/16"
 
@@ -39,4 +49,14 @@ resource "aws_vpc" "vpc-c" {
     Name = "vpc-c"
   }
 
+}
+
+resource "aws_subnet" "subnet-1c" {
+  vpc_id                  = aws_vpc.vpc-c.id
+  cidr_block              = "10.2.1.0/24"
+  availability_zone       = "eu-west-1b"
+  map_public_ip_on_launch = false
+  tags = {
+    Name = "subnet-1c"
+  }
 }
