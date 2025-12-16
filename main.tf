@@ -60,3 +60,18 @@ resource "aws_subnet" "subnet-1c" {
     Name = "subnet-1c"
   }
 }
+
+
+resource "aws_ec2_transit_gateway" "this" {
+  description     = "main-tgw"
+  amazon_side_asn = 64512
+
+  auto_accept_shared_attachments  = "disable"
+  default_route_table_association = "disable"
+  default_route_table_propagation = "disable"
+
+  tags = {
+    Name        = "main-tgw"
+    Environment = "prod"
+  }
+}
