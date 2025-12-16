@@ -69,9 +69,11 @@ resource "aws_ec2_transit_gateway" "this" {
   auto_accept_shared_attachments  = "disable"
   default_route_table_association = "disable"
   default_route_table_propagation = "disable"
+  dns_support                     = "enable"
 
   tags = {
     Name        = "main-tgw"
     Environment = "prod"
   }
 }
+
