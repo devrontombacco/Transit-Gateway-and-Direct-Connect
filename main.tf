@@ -77,3 +77,23 @@ resource "aws_ec2_transit_gateway" "this" {
   }
 }
 
+resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-a" {
+  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  vpc_id             = aws_vpc.vpc-a.id
+  subnet_ids         = [aws_subnet.subnet-1a]
+  dns_support        = "enable"
+}
+
+resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-b" {
+  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  vpc_id             = aws_vpc.vpc-b.id
+  subnet_ids         = [aws_subnet.subnet-1b]
+  dns_support        = "enable"
+}
+
+resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-c" {
+  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  vpc_id             = aws_vpc.vpc-b.id
+  subnet_ids         = [aws_subnet.subnet-1c]
+  dns_support        = "enable"
+}
