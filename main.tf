@@ -54,7 +54,7 @@ resource "aws_vpc" "vpc-c" {
 resource "aws_subnet" "subnet-1c" {
   vpc_id                  = aws_vpc.vpc-c.id
   cidr_block              = "10.2.1.0/24"
-  availability_zone       = "eu-west-1b"
+  availability_zone       = "eu-west-1c"
   map_public_ip_on_launch = false
   tags = {
     Name = "subnet-1c"
