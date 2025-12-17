@@ -1,5 +1,5 @@
 
-resource "aws_ec2_transit_gateway" "this" {
+resource "aws_ec2_transit_gateway" "tgw" {
   description     = "main-tgw"
   amazon_side_asn = 64512
 
@@ -15,22 +15,23 @@ resource "aws_ec2_transit_gateway" "this" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-a" {
-  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   vpc_id             = aws_vpc.vpc-a.id
   subnet_ids         = [aws_subnet.subnet-1a.id]
   dns_support        = "enable"
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-b" {
-  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   vpc_id             = aws_vpc.vpc-b.id
   subnet_ids         = [aws_subnet.subnet-1b.id]
   dns_support        = "enable"
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-c" {
-  transit_gateway_id = aws_ec2_transit_gateway.this.id
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   vpc_id             = aws_vpc.vpc-c.id
   subnet_ids         = [aws_subnet.subnet-1c.id]
   dns_support        = "enable"
 }
+
