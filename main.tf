@@ -93,7 +93,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-b" {
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-c" {
   transit_gateway_id = aws_ec2_transit_gateway.this.id
-  vpc_id             = aws_vpc.vpc-b.id
+  vpc_id             = aws_vpc.vpc-c.id
   subnet_ids         = [aws_subnet.subnet-1c.id]
   dns_support        = "enable"
 }
