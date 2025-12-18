@@ -18,32 +18,35 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "ec2-a1" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  subnet_id     = aws_subnet.subnet-1a.vpc_id
+  subnet_id     = aws_subnet.subnet-1a.id
+  key_name      = "MY_EC2_INSTANCE_KEYPAIR"
   # security_groups = [ Will insert SG next ] 
 
   tags = {
-    Name = "HelloWorld"
+    Name = "ec2-a1"
   }
 }
 
 resource "aws_instance" "ec2-b1" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  subnet_id     = aws_subnet.subnet-1b.vpc_id
+  subnet_id     = aws_subnet.subnet-1b.id
+  key_name      = "MY_EC2_INSTANCE_KEYPAIR"
   # security_groups = [ Will insert SG next ] 
 
   tags = {
-    Name = "HelloWorld"
+    Name = "ec2-b1"
   }
 }
 
 resource "aws_instance" "ec2-c1" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  subnet_id     = aws_subnet.subnet-1c.vpc_id
+  subnet_id     = aws_subnet.subnet-1c.id
+  key_name      = "MY_EC2_INSTANCE_KEYPAIR"
   # security_groups = [ Will insert SG next ] 
 
   tags = {
-    Name = "HelloWorld"
+    Name = "ec2-c1"
   }
 }
