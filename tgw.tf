@@ -34,3 +34,8 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-c" {
   subnet_ids         = [aws_subnet.subnet-1c.id]
   dns_support        = "enable"
 }
+
+
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt" {
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+}
