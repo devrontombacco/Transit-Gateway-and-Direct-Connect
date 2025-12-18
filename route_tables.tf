@@ -19,3 +19,23 @@ resource "aws_route_table" "vpc-a-rt" {
   }
 }
 
+resource "aws_route_table" "vpc-b-rt" {
+  vpc_id = aws_vpc.vpc-b.id
+
+  # Route to vpc-a via TGW
+  route {
+    cidr_block         = "10.0.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
+
+  # Route to VPC-C via TGW
+  route {
+    cidr_block         = "10.2.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
+
+  tags = {
+    Name = "vpc-b-rt"
+  }
+}
+
