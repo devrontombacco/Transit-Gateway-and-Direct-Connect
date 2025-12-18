@@ -39,3 +39,18 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-at-vpc-c" {
 resource "aws_ec2_transit_gateway_route_table" "tgw_rt" {
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
 }
+
+resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-assoc-vpc-a" {
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tgw-at-vpc-a.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
+}
+
+resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-assoc-vpc-b" {
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tgw-at-vpc-b.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
+}
+
+resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-assoc-vpc-c" {
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tgw-at-vpc-c.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
+}
