@@ -2,7 +2,7 @@
 resource "aws_security_group" "bastion_sg" {
   name        = "bastion-sg"
   description = "Allow inbound SSH from my IP + outbound all"
-  vpc_id      = aws_vpc.vpc_a.id
+  vpc_id      = aws_vpc.vpc-a.id
 
   ingress {
     description = "SSH from my IP"
