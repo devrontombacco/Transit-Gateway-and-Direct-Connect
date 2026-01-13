@@ -2,6 +2,12 @@
 resource "aws_route_table" "vpc-a-rt" {
   vpc_id = aws_vpc.vpc-a.id
 
+  #Route to internet
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+
   # Route to vpc-b via TGW
   route {
     cidr_block         = "10.1.0.0/16"
