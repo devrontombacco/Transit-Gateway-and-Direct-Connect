@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "ec2-a1" {
+resource "aws_instance" "ec2-a1-bastion" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.subnet-1a.id
