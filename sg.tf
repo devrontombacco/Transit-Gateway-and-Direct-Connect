@@ -77,7 +77,6 @@ resource "aws_security_group" "private-ec2-c-sg" {
     cidr_blocks = [
       "10.0.0.0/16", # vpc-a
       "10.1.0.0/16", # vpc-b
-      "10.2.0.0/16"  # vpc-c
     ]
   }
 
