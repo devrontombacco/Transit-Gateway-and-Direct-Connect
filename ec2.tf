@@ -40,11 +40,11 @@ resource "aws_instance" "ec2-b1" {
 }
 
 resource "aws_instance" "ec2-c1" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
-  subnet_id     = aws_subnet.subnet-1c.id
-  key_name      = "MY_EC2_INSTANCE_KEYPAIR"
-  # security_groups = [ Will insert SG next ] 
+  ami             = data.aws_ami.ubuntu.id
+  instance_type   = "t3.micro"
+  subnet_id       = aws_subnet.subnet-1c.id
+  key_name        = "MY_EC2_INSTANCE_KEYPAIR"
+  security_groups = [aws_security_group.private-ec2-c-sg.id]
 
   tags = {
     Name = "ec2-c1"
