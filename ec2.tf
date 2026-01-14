@@ -16,11 +16,12 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "ec2-a1-bastion" {
-  ami             = data.aws_ami.ubuntu.id
-  instance_type   = "t3.micro"
-  subnet_id       = aws_subnet.subnet-1a.id
-  key_name        = "MY_EC2_INSTANCE_KEYPAIR"
-  security_groups = [aws_security_group.bastion_sg.id]
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = "t3.micro"
+  subnet_id                   = aws_subnet.subnet-1a.id
+  key_name                    = "MY_EC2_INSTANCE_KEYPAIR"
+  associate_public_ip_address = true
+  security_groups             = [aws_security_group.bastion_sg.id]
 
   tags = {
     Name = "ec2-a1"
