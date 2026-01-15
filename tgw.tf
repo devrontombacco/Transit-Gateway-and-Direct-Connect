@@ -46,6 +46,12 @@ resource "aws_ec2_transit_gateway_route" "route_to_vpc_a" {
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
 }
 
+resource "aws_ec2_transit_gateway_route" "route_to_vpc_b" {
+  destination_cidr_block         = "10.1.0.0/16"
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tgw-at-vpc-b.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
+}
+
 resource "aws_ec2_transit_gateway_route_table_association" "tgw-rt-assoc-vpc-a" {
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.tgw-at-vpc-a.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt.id
