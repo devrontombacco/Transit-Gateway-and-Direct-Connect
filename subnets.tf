@@ -30,3 +30,13 @@ resource "aws_subnet" "subnet-1c" {
     Name = "subnet-1c"
   }
 }
+
+resource "aws_subnet" "subnet-on-prem-1a" {
+  vpc_id                  = aws_vpc.vpc-on-prem.id
+  cidr_block              = "10.100.1.0/24"
+  availability_zone       = "eu-west-1a"
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "subnet-on-prem-1a"
+  }
+}
