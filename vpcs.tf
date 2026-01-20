@@ -25,3 +25,12 @@ resource "aws_vpc" "vpc-c" {
   }
 
 }
+
+resource "aws_vpc" "vpc-on-prem" {
+  cidr_block = "10.100.0.0/16"
+
+  tags = {
+    Name = "vpc-on-prem"
+  }
+
+}
