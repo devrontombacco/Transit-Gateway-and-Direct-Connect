@@ -93,3 +93,8 @@ resource "aws_route_table_association" "rt-assoc-c" {
   subnet_id      = aws_subnet.subnet-1c.id
   route_table_id = aws_route_table.vpc-c-rt.id
 }
+
+resource "aws_route_table_association" "rt-assoc-on-prem" {
+  subnet_id      = aws_subnet.subnet-on-prem-1a.id
+  route_table_id = aws_route_table.vpc-on-prem-rt.id
+}
