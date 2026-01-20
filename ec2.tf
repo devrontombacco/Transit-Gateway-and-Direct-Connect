@@ -58,6 +58,7 @@ resource "aws_instance" "ec2-on-prem-1a" {
   subnet_id     = aws_subnet.subnet-on-prem-1a.id
   key_name      = "MY_EC2_INSTANCE_KEYPAIR"
   # security_groups = [aws_security_group.private-ec2-on-prem-sg.id]
+  user_data = base64encode(templatefile("user_data.sh", {}))
 
   tags = {
     Name = "ec2-on-prem-1a"
