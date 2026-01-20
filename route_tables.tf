@@ -65,6 +65,19 @@ resource "aws_route_table" "vpc-c-rt" {
   }
 }
 
+resource "aws_route_table" "vpc-on-prem-rt" {
+  vpc_id = aws_vpc.vpc-on-prem.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw-on-prem.id
+  }
+
+  tags = {
+    Name = "vpc-on-prem-rt"
+  }
+}
+
 
 resource "aws_route_table_association" "rt-assoc-a" {
   subnet_id      = aws_subnet.subnet-1a.id
