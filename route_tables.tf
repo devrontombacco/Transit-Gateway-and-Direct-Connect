@@ -20,6 +20,12 @@ resource "aws_route_table" "vpc-a-rt" {
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
+  # Route to on-prem via TGW
+  route {
+    cidr_block         = "10.100.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
+
   tags = {
     Name = "vpc-a-rt"
   }
@@ -40,6 +46,12 @@ resource "aws_route_table" "vpc-b-rt" {
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
+  # Route to on-prem via TGW
+  route {
+    cidr_block         = "10.100.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
+
   tags = {
     Name = "vpc-b-rt"
   }
@@ -57,6 +69,12 @@ resource "aws_route_table" "vpc-c-rt" {
   # Route to vpc-b via TGW
   route {
     cidr_block         = "10.1.0.0/16"
+    transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  }
+
+  # Route to on-prem via TGW
+  route {
+    cidr_block         = "10.100.0.0/16"
     transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   }
 
