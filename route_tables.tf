@@ -86,9 +86,28 @@ resource "aws_route_table" "vpc-c-rt" {
 resource "aws_route_table" "vpc-on-prem-rt" {
   vpc_id = aws_vpc.vpc-on-prem.id
 
+  # Route to internet
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw-on-prem.id
+  }
+
+  # Route to vpc-a
+  route {
+    cidr_block           = "10.0.0.0/16"
+    network_interface_id = aws_instance.ec2-on-prem-1a.primary_network_interface_id
+  }
+
+  # Route to vpc-b
+  route {
+    cidr_block           = "10.1.0.0/16"
+    network_interface_id = aws_instance.ec2-on-prem-1a.primary_network_interface_id
+  }
+
+  # Route to vpc-c
+  route {
+    cidr_block           = "10.2.0.0/16"
+    network_interface_id = aws_instance.ec2-on-prem-1a.primary_network_interface_id
   }
 
   tags = {
