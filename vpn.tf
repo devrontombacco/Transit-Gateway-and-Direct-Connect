@@ -10,7 +10,3 @@ resource "aws_vpn_connection" "vpn_on_prem_1a" {
   }
 }
 
-resource "aws_vpn_connection_route" "vpn_on_prem_route" {
-  vpn_connection_id      = aws_vpn_connection.vpn_on_prem_1a.id
-  destination_cidr_block = "10.100.0.0/16"
-}
