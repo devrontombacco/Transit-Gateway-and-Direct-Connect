@@ -17,12 +17,6 @@ The architecture showcases hybrid cloud connectivity patterns commonly used in e
 
 ![Screenshot](./architecture_diagram.png)
 
-## Overview
-
-This project demonstrates a production-grade AWS networking architecture featuring multiple VPCs interconnected through AWS Transit Gateway, with a simulated on-premises data center connected via Site-to-Site VPN using StrongSwan.
-
-The architecture showcases hybrid cloud connectivity patterns commonly used in enterprise environments for connecting cloud infrastructure with on-premises networks.
-
 ## Architecture
 
 **Network Topology:**
