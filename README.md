@@ -13,11 +13,11 @@ In this project I attempted to set up a production-grade AWS networking architec
 
 The architecture showcases hybrid cloud connectivity patterns commonly used in enterprise environments for connecting cloud infrastructure with on-premises networks.
 
-### Architecture
+## Architecture
+
+### Architecture Diagram
 
 ![Screenshot](./architecture_diagram.png)
-
-## Architecture
 
 **Network Topology:**
 
@@ -27,7 +27,7 @@ The architecture showcases hybrid cloud connectivity patterns commonly used in e
 - Site-to-Site VPN connection between Transit Gateway and on-premises VPN endpoint
 - StrongSwan IPsec VPN software on EC2 instance acting as Customer Gateway
 
-### Prerequisites before installation
+## Prerequisites before installation
 
 - AWS Account with appropriate permissions
 - Terraform >= 1.0
@@ -35,7 +35,7 @@ The architecture showcases hybrid cloud connectivity patterns commonly used in e
 - SSH key pair for EC2 access
 - Basic understanding of networking concepts (subnets, routing, VPNs)
 
-### Deployment
+## Deployment
 
 ### 1. Clone the repository
 
@@ -121,7 +121,7 @@ Check that the tunnel shows `ESTABLISHED`:
 sudo ipsec status
 ```
 
-### 8. Test connectivity
+## 8. Test connectivity
 
 From the on-premises EC2, ping an EC2 instance in one of the cloud VPCs:
 
@@ -129,7 +129,7 @@ From the on-premises EC2, ping an EC2 instance in one of the cloud VPCs:
 ping
 ```
 
-### Features
+## Features
 
 Follow these steps to check its working:
 
@@ -143,7 +143,7 @@ Follow these steps to check its working:
 - **Automated Infrastructure:** Everything except StrongSwan config deployed via Terraform
 - **High Availability:** AWS provides dual-tunnel VPN (project uses single tunnel for simplicity)
 
-### Technologies Used
+## Technologies Used
 
 - **Infrastructure as Code:** Terraform
 - **Cloud Provider:** AWS
@@ -157,9 +157,7 @@ Follow these steps to check its working:
 - **VPN Software:** StrongSwan (IPsec)
 - **Operating System:** Ubuntu 22.04
 
-## What I Learned
-
-### Technical Skills
+## Technical Skills
 
 - Configuring AWS Transit Gateway for multi-VPC connectivity
 - Setting up Site-to-Site VPN connections with AWS
@@ -168,18 +166,18 @@ Follow these steps to check its working:
 - Implementing complex routing across multiple network segments
 - Using Terraform for infrastructure automation
 
-### Troubleshooting Experience
+## Troubleshooting Experience
 
 - Debugging cloud-init user_data script failures
   - Identifying CRLF line ending issues using hexdump
   - Understanding the importance of shebang placement
-- Resolving VPN tunnel connectivity issues
+  - Resolving VPN tunnel connectivity issues
   - Analyzing IPsec tunnel status and packet counters
   - Troubleshooting Transit Gateway route table associations
   - Configuring EC2 source/destination checks for routing
 - Working with security groups and network ACLs
 
-### DevOps Best Practices
+## DevOps Best Practices
 
 - Using version control (Git) for infrastructure code
 - Writing clear commit messages
@@ -204,7 +202,7 @@ This project is open source and available under the MIT License.
 
 ## Author
 
-Your Name - [LinkedIn](your-linkedin-url) | [GitHub](your-github-url)
+Devron - [LinkedIn](your-linkedin-url) | [GitHub](your-github-url)
 
 ## Acknowledgments
 
