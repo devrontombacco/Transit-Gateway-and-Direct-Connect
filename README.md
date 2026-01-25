@@ -15,7 +15,7 @@ The architecture showcases hybrid cloud connectivity patterns commonly used in e
 
 ### Architecture
 
-![Screenshot](/insert screenshot here.png)
+![Screenshot](./architecture_diagram.png)
 
 ## Overview
 
