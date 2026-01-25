@@ -12,6 +12,19 @@ resource "aws_security_group" "bastion_sg" {
     cidr_blocks = ["${var.my_ip_address}/32"]
   }
 
+  ingress {
+    description = "Allow ICMP from all VPCs and on-prem"
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = [
+      "10.0.0.0/16",  # VPC-A
+      "10.1.0.0/16",  # VPC-B
+      "10.2.0.0/16",  # VPC-C
+      "10.100.0.0/16" # On-prem
+    ]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -36,13 +49,14 @@ resource "aws_security_group" "private-ec2-b-sg" {
   }
 
   ingress {
-    description = "Allow ICMP from all vpcs"
+    description = "Allow ICMP from all VPCs and on-prem"
     from_port   = -1
     to_port     = -1
-    protocol    = "ICMP"
+    protocol    = "icmp"
     cidr_blocks = [
-      "10.0.0.0/16", # vpc-a
-      "10.2.0.0/16"  # vpc-c
+      "10.0.0.0/16",  # VPC-A
+      "10.2.0.0/16",  # VPC-C
+      "10.100.0.0/16" # On-prem
     ]
   }
 
@@ -70,13 +84,14 @@ resource "aws_security_group" "private-ec2-c-sg" {
   }
 
   ingress {
-    description = "Allow ICMP from all vpcs"
+    description = "Allow ICMP from all VPCs and on-prem"
     from_port   = -1
     to_port     = -1
-    protocol    = "ICMP"
+    protocol    = "icmp"
     cidr_blocks = [
-      "10.0.0.0/16", # vpc-a
-      "10.1.0.0/16", # vpc-b
+      "10.0.0.0/16",  # VPC-A
+      "10.1.0.0/16",  # VPC-B
+      "10.100.0.0/16" # On-prem
     ]
   }
 
@@ -120,14 +135,14 @@ resource "aws_security_group" "ec2-on-prem-1a-sg" {
   }
 
   ingress {
-    description = "Allow ICMP from all vpcs"
+    description = "Allow ICMP from all VPCs and on-prem"
     from_port   = -1
     to_port     = -1
-    protocol    = "ICMP"
+    protocol    = "icmp"
     cidr_blocks = [
-      "10.0.0.0/16", # vpc-a
-      "10.1.0.0/16", # vpc-b
-      "10.2.0.0/16"  # vpc-c
+      "10.0.0.0/16", # VPC-A
+      "10.1.0.0/16", # VPC-B
+      "10.2.0.0/16", # VPC-C
     ]
   }
 
