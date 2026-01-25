@@ -53,12 +53,13 @@ resource "aws_instance" "ec2-c1" {
 }
 
 resource "aws_instance" "ec2-on-prem-1a" {
-  ami              = data.aws_ami.ubuntu.id
-  instance_type    = "t3.micro"
-  subnet_id        = aws_subnet.subnet-on-prem-1a.id
-  key_name         = "MY_EC2_INSTANCE_KEYPAIR"
-  security_groups  = [aws_security_group.ec2-on-prem-1a-sg.id]
-  user_data_base64 = base64encode(templatefile("user_data.sh", {}))
+  ami               = data.aws_ami.ubuntu.id
+  instance_type     = "t3.micro"
+  subnet_id         = aws_subnet.subnet-on-prem-1a.id
+  key_name          = "MY_EC2_INSTANCE_KEYPAIR"
+  security_groups   = [aws_security_group.ec2-on-prem-1a-sg.id]
+  user_data_base64  = base64encode(templatefile("user_data.sh", {}))
+  source_dest_check = false
 
   tags = {
     Name = "ec2-on-prem-1a"
