@@ -198,7 +198,7 @@ This project is open source and available under the MIT License.
 
 ## Author
 
-Devron - [LinkedIn](your-linkedin-url) | [GitHub](your-github-url)
+Devron - [LinkedIn](https://www.linkedin.com/in/devrontombacco/) | [GitHub](https://github.com/devrontombacco)
 
 ## Acknowledgments
 
