@@ -54,31 +54,25 @@ Edit your Terraform variables file with your specific values:
 - SSH key pair name
 - Your IP address (for SSH access)
 
-### 3. Initialize Terraform
+### 3. Initialize, Review, Appply
 
 ```bash
 terraform init
 ```
 
-### 4. Review the plan
-
 ```bash
 terraform plan
 ```
-
-### 5. Deploy infrastructure
 
 ```bash
 terraform apply
 ```
 
-### 6. Configure StrongSwan VPN
+### 4. Configure StrongSwan VPN
 
 After infrastructure is deployed:
 
-a. Download VPN configuration from AWS Console:
-
-- VPC → Site-to-Site VPN Connections → Select your VPN → Download Configuration
+a. Download VPN configuration from AWS Console: VPC → Site-to-Site VPN Connections → Download Configuration
 
 b. SSH into the on-premises EC2 instance:
 
@@ -115,7 +109,7 @@ sudo systemctl restart strongswan-starter
 sudo ipsec status
 ```
 
-### 7. Verify VPN tunnel
+### 5. Verify VPN tunnel
 
 Check that the tunnel shows `ESTABLISHED`:
 
@@ -123,7 +117,7 @@ Check that the tunnel shows `ESTABLISHED`:
 sudo ipsec status
 ```
 
-## 8. Test connectivity
+## 6. Test connectivity
 
 From the on-premises EC2, ping an EC2 instance in one of the cloud VPCs:
 
